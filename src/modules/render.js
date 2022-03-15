@@ -33,3 +33,14 @@ export const render = (users) => {
     );
   });
 };
+
+export const renderError = () => {
+  const table = document.querySelector('table');
+  const errorBlock = document.createElement('div');
+
+  table.after(errorBlock);
+
+  errorBlock.textContent = 'Произошла ошибка, данных нет!';
+
+  setTimeout(() => errorBlock.remove(), 3000);
+};

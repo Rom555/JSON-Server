@@ -1,5 +1,5 @@
 import { UserService } from './modules/userService';
-import { render } from './modules/render';
+import { render, renderError } from './modules/render';
 import { addUsers } from './modules/addUsers';
 import { removeUsers } from './modules/removeUsers';
 import { changePermissions } from './modules/changePermissions';
@@ -8,7 +8,7 @@ import { filterUsers } from './modules/filterUsers';
 import { sortUsers } from './modules/sortUsers';
 import { searchUsers } from './modules/searchUsers';
 
-window.userService = new UserService();
+window.userService = new UserService('http://localhost:4545/users');
 
 userService.getUsers().then((data) => {
   render(data);
