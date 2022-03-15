@@ -10,47 +10,47 @@ export class UserService {
   }
 
   addUser(user) {
-    return sendData(this._url + 1, {
+    return sendData(this._url, {
       method: 'POST',
       body: user,
     });
   }
 
   removeUser(id) {
-    return sendData(`${this._url}1/${id}`, {
+    return sendData(`${this._url}/${id}`, {
       method: 'DELETE',
     });
   }
 
   changeUser(id, data) {
-    return sendData(`${this._url}1/${id}`, {
+    return sendData(`${this._url}/${id}`, {
       method: 'PATCH',
       body: data,
     });
   }
 
   getUser(id) {
-    return getData(`${this._url}1/${id}`);
+    return getData(`${this._url}/${id}`);
   }
 
   editUser(id, user) {
-    return sendData(`${this._url}1/${id}`, {
+    return sendData(`${this._url}/${id}`, {
       method: 'PUT',
       body: user,
     });
   }
 
   filterUsers(filterOption) {
-    return getData(`${this._url}1?${filterOption}=true`);
+    return getData(`${this._url}?${filterOption}=true`);
   }
 
   getSortUsers(sortOption) {
     return getData(
-      `${this._url}1?_sort=${sortOption.name}&_order=${sortOption.value}`
+      `${this._url}?_sort=${sortOption.name}&_order=${sortOption.value}`
     );
   }
 
   getSearchUsers(str) {
-    return getData(`${this._url}1?name_like=${str}`);
+    return getData(`${this._url}?name_like=${str}`);
   }
 }
